@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <rect x="0" y="0" width="1000" height="1000" fill="none"/>
+  <rect x="24" y="24" width="952" height="952" rx="40" fill="none" stroke="#aee1f9" stroke-width="30"/>
+  <rect x="24" y="24" width="952" height="952" rx="40" fill="none" stroke="#ffd3e0" stroke-width="8" transform="translate(6,6)"/>
+  <g fill="#5c8aa8" font-family="Georgia, 'Playfair Display', serif">
+    <text x="500" y="95" text-anchor="middle" font-size="42" font-weight="bold">☁ Little Miracle ☁</text>
+  </g>
+  <circle cx="90" cy="120" r="14" fill="#ffd3e0"/>
+  <circle cx="910" cy="120" r="14" fill="#aee1f9"/>
+  <rect x="120" y="140" width="760" height="600" rx="16" fill="none" stroke="#ffd3e0" stroke-width="6" stroke-dasharray="1 12" stroke-linecap="round"/>
+  <rect x="120" y="770" width="760" height="150" rx="18" fill="#f4fbff" stroke="#aee1f9" stroke-width="3"/>
+</svg>

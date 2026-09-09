@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <rect x="18" y="18" width="964" height="964" rx="20" fill="none" stroke="#c98b7a" stroke-width="30"/>
+  <rect x="70" y="70" width="860" height="860" fill="none" stroke="#e7bfae" stroke-width="3"/>
+  <g fill="#a6644f" font-family="Georgia, 'Playfair Display', serif">
+    <text x="500" y="95" text-anchor="middle" font-size="40" font-weight="bold">Together Forever</text>
+  </g>
+  <rect x="130" y="130" width="740" height="560" fill="none" stroke="#c98b7a" stroke-width="5" stroke-dasharray="1 10" stroke-linecap="round"/>
+  <rect x="130" y="720" width="355" height="130" rx="14" fill="#fff6f2" stroke="#c98b7a" stroke-width="2"/>
+  <rect x="515" y="720" width="355" height="130" rx="14" fill="#fff6f2" stroke="#c98b7a" stroke-width="2"/>
+  <text x="307" y="785" text-anchor="middle" font-size="22" fill="#c98b7a" font-family="Georgia, serif">&amp;</text>
+  <text x="500" y="885" text-anchor="middle" font-size="28" fill="#a6644f" font-family="Georgia, serif">— since —</text>
+</svg>

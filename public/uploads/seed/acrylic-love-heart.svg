@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <rect x="18" y="18" width="964" height="964" rx="24" fill="none" stroke="#b5304a" stroke-width="4"/>
+  <path d="M 500 210 L 560 120 L 650 120 L 740 210 L 740 330 L 500 600 L 260 330 L 260 210 L 350 120 L 440 120 Z"
+        fill="none" stroke="#e0536f" stroke-width="26" stroke-linejoin="round"/>
+  <g fill="#b5304a" font-family="Georgia, 'Playfair Display', serif">
+    <text x="500" y="90" text-anchor="middle" font-size="44" font-weight="bold">♥ Made For Each Other ♥</text>
+  </g>
+  <rect x="150" y="760" width="700" height="150" rx="18" fill="#fff0f2" stroke="#e0536f" stroke-width="3"/>
+</svg>

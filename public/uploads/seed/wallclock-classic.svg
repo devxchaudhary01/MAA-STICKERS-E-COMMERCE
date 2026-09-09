@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <circle cx="500" cy="500" r="460" fill="none" stroke="#2b2b2b" stroke-width="40"/>
+  <circle cx="500" cy="500" r="486" fill="none" stroke="#c9a24b" stroke-width="4"/>
+  <!-- hour ticks -->
+  <g stroke="#2b2b2b" stroke-width="6">
+    <line x1="500" y1="60" x2="500" y2="100"/>
+    <line x1="500" y1="900" x2="500" y2="940"/>
+    <line x1="60" y1="500" x2="100" y2="500"/>
+    <line x1="900" y1="500" x2="940" y2="500"/>
+    <line x1="196" y1="196" x2="225" y2="225"/>
+    <line x1="775" y1="196" x2="804" y2="225"/>
+    <line x1="196" y1="804" x2="225" y2="775"/>
+    <line x1="775" y1="804" x2="804" y2="775"/>
+  </g>
+  <g fill="#2b2b2b" font-family="Georgia, serif" font-size="48" font-weight="bold" text-anchor="middle">
+    <text x="500" y="150">12</text>
+    <text x="500" y="880">6</text>
+    <text x="150" y="518">9</text>
+    <text x="850" y="518">3</text>
+  </g>
+  <!-- bottom nameplate, sits just outside the photo window -->
+  <rect x="330" y="845" width="340" height="95" rx="12" fill="#2b2b2b"/>
+</svg>

@@ -1,0 +1,178 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  password  String
+  role      String   @default("customer")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  orders    Order[]
+  addresses Address[]
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  imageUrl    String?
+  sortOrder   Int       @default(0)
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+
+  /// "STANDARD" = normal product grid. "GALLERY" = auto-mockup photo/text
+  /// customizer (Acrylic Wall, Wall Clock, etc.) - only meaningful on a
+  /// leaf category (one with no children).
+  type        String    @default("STANDARD")
+
+  parentId    String?
+  parent      Category? @relation("CategoryToSubcategory", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryToSubcategory")
+
+  products    Product[]
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  name          String
+  slug          String   @unique
+  description   String
+  basePrice     Float
+  comparePrice  Float?
+  imageUrl      String
+  images        String   @default("[]")
+  categoryId    String
+  isCustomizable Boolean @default(true)
+  isActive      Boolean  @default(true)
+  isFeatured    Boolean  @default(false)
+  stock         Int      @default(999)
+  tags          String   @default("[]")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  /// --- Frame-gallery / mockup-template fields ---
+  /// When true, this Product is a frame/clock design template that lives
+  /// inside a GALLERY category: the storefront auto-applies the customer's
+  /// uploaded photo to it (and to every other template in the category) and
+  /// lets them edit the text fields defined in textAreas.
+  isGalleryTemplate Boolean @default(false)
+  /// PNG of the frame/clock artwork with a transparent "window" where the
+  /// photo shows through. Drawn ON TOP of the user's photo.
+  overlayImageUrl   String?
+  /// Normalized (0-1) rect {x,y,width,height,shape,rotation} describing
+  /// where the user's photo is composited, relative to canvasWidth/Height.
+  photoArea         String?
+  /// JSON array of editable text fields: [{id,x,y,width,height,align,
+  /// fontFamily,fontSize,color,fontWeight,fontStyle,placeholder,maxLength}]
+  textAreas         String   @default("[]")
+  canvasWidth       Int      @default(1000)
+  canvasHeight      Int      @default(1000)
+
+  category      Category   @relation(fields: [categoryId], references: [id])
+  variants      ProductVariant[]
+  orderItems    OrderItem[]
+}
+
+model ProductVariant {
+  id        String   @id @default(cuid())
+  productId String
+  name      String
+  options   String
+  priceAdj  Float    @default(0)
+  createdAt DateTime @default(now())
+
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id              String   @id @default(cuid())
+  orderNumber     String   @unique
+  userId          String?
+  guestEmail      String?
+  guestPhone      String?
+  guestName       String?
+  status          String   @default("pending")
+  paymentStatus   String   @default("unpaid")
+  paymentMethod   String?
+  subtotal        Float
+  shippingCost    Float    @default(0)
+  discount        Float    @default(0)
+  total           Float
+  notes           String?
+  addressId       String?
+  shippingAddress String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User?      @relation(fields: [userId], references: [id])
+  items           OrderItem[]
+}
+
+model OrderItem {
+  id            String   @id @default(cuid())
+  orderId       String
+  productId     String
+  productName   String
+  productImage  String
+  quantity      Int
+  price         Float
+  variantInfo   String?
+  customization String?
+  uploadedImage String?
+  createdAt     DateTime @default(now())
+
+  order         Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product       Product  @relation(fields: [productId], references: [id])
+}
+
+model Address {
+  id        String   @id @default(cuid())
+  userId    String
+  label     String   @default("Home")
+  name      String
+  phone     String
+  line1     String
+  line2     String?
+  city      String
+  state     String
+  pincode   String
+  isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Coupon {
+  id          String   @id @default(cuid())
+  code        String   @unique
+  type        String
+  value       Float
+  minOrder    Float    @default(0)
+  maxUses     Int?
+  usedCount   Int      @default(0)
+  isActive    Boolean  @default(true)
+  expiresAt   DateTime?
+  createdAt   DateTime @default(now())
+}
+
+model Banner {
+  id        String   @id @default(cuid())
+  title     String
+  subtitle  String?
+  imageUrl  String
+  linkUrl   String?
+  isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}

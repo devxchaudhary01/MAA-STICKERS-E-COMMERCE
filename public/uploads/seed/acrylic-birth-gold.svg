@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <rect x="18" y="18" width="964" height="964" rx="28" fill="none" stroke="#d4a017" stroke-width="34"/>
+  <rect x="60" y="60" width="880" height="880" rx="18" fill="none" stroke="#f2cf6b" stroke-width="4"/>
+  <rect x="115" y="115" width="770" height="580" rx="12" fill="none" stroke="#d4a017" stroke-width="6" stroke-dasharray="2 10" stroke-linecap="round"/>
+  <g fill="#c98f0a" font-family="Georgia, 'Playfair Display', serif">
+    <text x="500" y="90" text-anchor="middle" font-size="46" font-weight="bold">✦ It's a Baby! ✦</text>
+  </g>
+  <rect x="115" y="750" width="770" height="150" rx="16" fill="#fff8e6" stroke="#d4a017" stroke-width="3"/>
+</svg>
